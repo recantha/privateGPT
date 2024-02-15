@@ -1,8 +1,8 @@
 from typing import TYPE_CHECKING, Literal
 
 from injector import inject, singleton
-from llama_index import ServiceContext, StorageContext, VectorStoreIndex
-from llama_index.schema import NodeWithScore
+from llama_index.core import ServiceContext, StorageContext, VectorStoreIndex
+from llama_index.core.schema import NodeWithScore
 from pydantic import BaseModel, Field
 
 from private_gpt.components.embedding.embedding_component import EmbeddingComponent

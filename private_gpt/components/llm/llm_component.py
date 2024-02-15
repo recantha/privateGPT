@@ -1,9 +1,9 @@
 import logging
 
 from injector import inject, singleton
-from llama_index import set_global_tokenizer
-from llama_index.llms import MockLLM
-from llama_index.llms.base import LLM
+from llama_index.core import set_global_tokenizer
+from llama_index.core.llms.mock import MockLLM
+from llama_index.core.llms import LLM
 from transformers import AutoTokenizer  # type: ignore
 
 from private_gpt.components.llm.prompt_helper import get_prompt_style
@@ -31,7 +31,7 @@ class LLMComponent:
         logger.info("Initializing the LLM in mode=%s", llm_mode)
         match settings.llm.mode:
             case "local":
-                from llama_index.llms import LlamaCPP
+                from llama_index.legacy.llms import LlamaCPP
 
                 prompt_style = get_prompt_style(settings.local.prompt_style)
 
